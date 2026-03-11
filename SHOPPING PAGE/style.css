@@ -1,0 +1,35 @@
+body{
+    background-color: blue;
+    color: #3953c6;
+    font-family: 'Nunito', sans-serif;
+    font-size:15px;
+    position: center;
+    text-align: center;
+    
+}
+.infobox{
+    width: 300px;
+    height: 250px;
+    color: black;
+    border-radius: 7px;
+    background-color:white;
+    margin-top: 10px;
+    position: center;
+    padding :10px;
+
+}
+
+#products{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap : 5px;
+}
+h1{
+    font-size: 30px;
+    color: white;
+    position: center;
+}
+button{
+    width: 70px;
+    height: 30px;
+}
