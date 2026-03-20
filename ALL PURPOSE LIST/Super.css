@@ -1,0 +1,56 @@
+body{
+    background-image: url(MIT.jpg);
+    background-size: cover;
+    opacity: 0.8;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+
+}
+.container{
+    background-color:transparent;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.input-group{
+    background-color: cornflowerblue;
+    max-width:1000px;
+    max-height: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: transparent;
+    font-style: bold;
+    font-size: 15px;
+    color: white;
+
+}.buttonadd{
+    background-color: rgba(122, 122, 210, 0.227);
+    color: white;
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    fill: rgba(122, 122, 210, 0.227);
+}.inputbox{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: blanchedalmond;
+}.center{
+    text-align: center;
+    margin-bottom: 10px;
+}.list{
+    background-color:rgba(0, 0, 0, 0.51);
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
