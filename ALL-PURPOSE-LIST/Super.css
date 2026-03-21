@@ -1,6 +1,6 @@
 body{
     background-image: url(MIT.jpg);
-    background-size: cover;
+    background-size:contain;
     opacity: 0.8;
     background-position: center;
     font-family: Arial, sans-serif;
