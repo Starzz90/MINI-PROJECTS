@@ -18,8 +18,8 @@ body {
     top: 20%;
     right: 20%;
     left: 35%;
-    bottom: 30%;
-    background-size: contain;
+    bottom: 20%;
+    background-size: fit-content;
 }
 
 .calculator-screen {

@@ -29,13 +29,13 @@ function sqrt(op){
     display.value = Math.SQRT(Number(display.value), 2);
 }
 
-function customsqrt(op){
+function sqrt(op){
     if(display.value === ''){
         return;
     }
     const char = display.value.slice(-1);
     if('+-/*'.includes(char))return;
-    display.value += op;
+    display.value = Math.SQRT(Number(display.value), 3);
 }
 
 function power(op){
@@ -59,4 +59,8 @@ function results(){
 }
 function phi(op){
     display.value = Math.PI;
+}
+
+function append(op){
+    display.value += op;
 }
