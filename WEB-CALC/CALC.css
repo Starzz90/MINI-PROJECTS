@@ -9,10 +9,10 @@ body {
 
 .calculator {
     text-align: center;
-    border: 1px solid #ccc;
+    background-color: #0030b6;
+    border: 1px solid #00217b;
     border-radius: 5px;
     padding: 20px;
-    background-color: FA8814;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 20%;
@@ -50,6 +50,10 @@ button {
     font-size: 18px;
     color: black;
     cursor: pointer;
+}
+button:hover{
+    background-color: #ffd000;
+    scale: 1.05;
 }
 
 button:active {

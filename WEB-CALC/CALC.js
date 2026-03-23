@@ -26,16 +26,7 @@ function sqrt(op){
 }
     const char = display.value.slice(-1);
     if('+-*/'.includes(char)) return;
-    display.value = Math.SQRT(Number(display.value), 2);
-}
-
-function sqrt(op){
-    if(display.value === ''){
-        return;
-    }
-    const char = display.value.slice(-1);
-    if('+-/*'.includes(char))return;
-    display.value = Math.SQRT(Number(display.value), 3);
+    display.value =  Math.sqrt(display.value);
 }
 
 function power(op){
