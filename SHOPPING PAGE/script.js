@@ -12,6 +12,55 @@ const products = [
 
 // Find the place on the page
 const box = document.getElementById("products");
+function increaseQty(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    cart[index].quantity += 1;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+function getTotal() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+    return total;
+}
+function getTotal() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+    return total;
+}
+function checkOut(){
+  window.location.href = "checkOut.html"
+}
 // Start with empty text
 let output = "";
+
+// Go through each product
+for (let i = 0; i < products.length; i++) {
+  const item = products[i];
+  output += `
+    <div class="infobox">
+      <img src="${item.src}" alt="gambar elektronik" width= 150 height= 100>
+      <h3>${item.name}</h3>
+      <p>Price: $${item.price}</p>
+      <p>Brand: ${item.brand}</p>
+      <button>${item.buy}</button>
+    </div>
+  `;
+}
+
+// Show all products on the page
+box.innerHTML = output;

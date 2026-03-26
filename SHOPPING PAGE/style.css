@@ -17,14 +17,14 @@ body{
     position: center;
     padding :10px;
     overflow: hidden;
-
+    gap: 20px;
 
 }
 
 #products{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap : 5px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap : 20px;
 }
 h1{
     font-size: 30px;
@@ -34,6 +34,8 @@ h1{
 button{
     width: 70px;
     height: 30px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 174, 0);
 }
 img:hover{
     transform: scale(1.3);
