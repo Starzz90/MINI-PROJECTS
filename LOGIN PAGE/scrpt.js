@@ -8,3 +8,10 @@ function login(){
         alert("Login Failed");
     }
 }
+
+function sign_up(){
+    window.location.href = "signup.html";
+}
+function backLogin(){
+    window.location.href = "idx.html";
+}
