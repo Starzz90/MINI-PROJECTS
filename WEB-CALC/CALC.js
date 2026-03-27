@@ -11,12 +11,14 @@ function clearDisplay(){
 //operator basic//
 
 function checkOperator(op){
+    display.value += op;
+}
+function Checks(op){
     if(display.value == ''){
         return;
-    }
-    
+}
     const char = display.value.slice(-1);
-    if('+-*/'.includes(char)) return;
+    if('*/'.includes(char)) return;
     display.value += op;
 }
 
@@ -39,6 +41,31 @@ function power(op){
 
 }
 
+function sin(){
+    if(display.value === ""){
+        return;
+    }
+    else{
+        display.value = Math.sin(display.value);
+    }
+}
+function cos(){
+    if(display.value === ""){
+        return;
+    }
+    else{
+        display.value = Math.cos(display.value);
+    }
+}function tan(){
+    if(display.value === ""){
+        return;
+    }
+    else{
+        display.value = Math.tan(display.value);
+    }
+}function Log(){
+    display.value = Math.log(display.value);
+}
 function results(){
     try{
         var result = eval(display.value);
@@ -48,7 +75,7 @@ function results(){
         display.value = "Error"; 
     }
 }
-function phi(op){
+function phi(){
     display.value = Math.PI;
 }
 
