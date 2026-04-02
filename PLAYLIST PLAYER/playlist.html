@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Playlist</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="play.css">
 </head>
 <body>
-    <div class="top">
-        <h1>Playlist</h1>
-    </div>
-    <h3>    Choose your Music   </h3>
-        <audio id="player" controls>
-        </audio>
-        <ul id="playlist">
-
-        </ul>
+    <div class="contain">
+        <div class="centerize-top">
+            <h1>Playlist</h1>
+        </div>
         <div class="centerize">
-            <button class="button" id="Back"><</button>
-            <button class="button" id="playPause">Pause</button>
-            <button class="button" id="Next">></button>
+            <h3>    Choose your Music   </h3>
+        </div>
+        <div class="centerize">
+                <audio id="player" controls>
+                </audio>
+        </div>
+        <div class="centerize-list">
+                <ul id="playlist">
+                </ul>
+            </div>
+            <div class="centerize">
+                <button class="button" id="Back"><</button>
+                <button class="button" id="playPause">Pause</button>
+                <button class="button" id="Next">></button>
+            </div>
         </div>
     <script src="play.js"></script>
 </body>
