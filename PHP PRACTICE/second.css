@@ -58,3 +58,15 @@ body{
 br{
     margin: 5px;
 }
+.form-label{
+    display: flex;
+    flex-direction: flex-start;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.input-label{
+    display: flex;
+    flex-direction: flex-end;
+    margin-top: 5px;
+    
+}
