@@ -25,14 +25,14 @@ body{
 .inputbox{
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #b8c5ff;
+    border: 1px solid #869cff;
     background-color: #e4e9ff;
     color: #000;
     width: 90%;
 }
 button{
     width: 100%;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #4e6eff;
     color: #fff;
     padding: 10px;
@@ -42,8 +42,27 @@ button{
     color: #001366;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 .right{
     display: flex;
     justify-content: flex-end;
+}
+.results{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #cfcfcf;
+    padding-bottom: 8px;
+}
+.result-box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-size: contain;
+    width: 100%;
 }
