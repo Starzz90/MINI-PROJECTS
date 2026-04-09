@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckOut</title>
-    <link rel="stylesheet" href="fri.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Digital Mart</title>
+  <link rel="stylesheet" href="fri.css">
 </head>
 <body>
-    <h1>Digital Mart</h1>
-    <div id ="products">
-        <div class= "infobox">
-            <script src = "script.js"></script>
-        </div>
-    </div>
-    <button onclick="checkOut()">Check Out</button>
+  <h1>Checkout - Digital Mart</h1>
+  <div class="checkout-page">
+    <section class="cart-section">
+      <h2>Your Order</h2>
+      <div id="cart-items"></div>
+      <div class="summary">
+        <p>Subtotal: $<span id="subtotal">0.00</span></p>
+        <p class="grand-total">Total: $<span id="total">0.00</span></p>
+      </div>
+    </section>
+    <section class="order-section">
+      <h2>Shipping & Payment</h2>
+      <form id="checkout-form" onsubmit="return submitOrder()">
+        <label>
+          Full Name
+          <input type="text" id="customer-name" placeholder="Your full name" required />
+        </label>
+        <label>
+          Email Address
+          <input type="email" id="customer-email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Shipping Address
+          <input type="text" id="customer-address" placeholder="123 Main St, City, Country" required />
+        </label>
+        <label>
+          Payment Method
+          <select id="customer-payment">
+            <option value="Credit Card">Credit Card</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+          </select>
+        </label>
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+  </div>
+  <button class="continue-button" onclick="window.location.href='idx.html'">Continue Shopping</button>
+  <script src="checkout.js"></script>
 </body>
 </html>

@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Data</title>
-    <link rel="stylesheet" href="fri.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Mart</title>
+  <link rel="stylesheet" href="fri.css">
 </head>
 <body>
-    <h1>Digital Mart</h1>
-    <div id ="products">
-        <div class= "infobox">
-            <script src = "script.js"></script>
-        </div>
-    </div>
-    <button onclick="checkOut()">Check Out</button>
+  <h1>Digital Mart</h1>
+  <p class="cart-summary">Cart items: <span id="cart-count">0</span></p>
+  <div id="products"></div>
+  <button class="checkout-button" onclick="checkOut()">Go to Checkout</button>
+  <script src="script.js"></script>
 </body>
 </html>
