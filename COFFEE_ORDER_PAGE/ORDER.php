@@ -19,7 +19,7 @@
                 
                 <input type="text" name="customer_name" placeholder="Your Name" class="coffee-input">
                 <input type="text" name="Money" placeholder="Amount Paid" class="coffee-input"></br>
-                <input type="submit" value="Order" class="button">
+                <input type="submit" value="Order" class="button" onclick="Order">
             </form>
         </div>
     </div>
