@@ -1,1 +1,1 @@
-A small collection of programs that i would say "functional" in some way. Some programs are created with the help of tutors or copilot due to my lack of experience in the language.
+A small collection of projects that i did on VSCode and CodeHS, so i transfered them here. Some programs are created with the assistance of tutors and copilot.
