@@ -1,20 +1,17 @@
 import csv
-from datetime import datetime
 
 class menu:
     # nama dan price
-    def __init__(self, coffee, price, addon, timestamp):
+    def __init__(self, coffee, price, addon):
         self.coffee = coffee
         self.price = price
         self.addon = addon
-        self.timestamp = timestamp
 
 class Order:
-    def __init__(self, name, price, addon, timestamp=None):
+    def __init__(self, name, price, addon):
         self.name = name
         self.price = price
         self.addon = addon
-        self.timestamp = timestamp or datetime.now().strftime("%H:%M:%S")
 
     def total_price(self):
         return sum(self.price)
@@ -34,23 +31,16 @@ class Reportorder:
                     if not row:
                         continue
                     name = row[0]
-                    if len(row) > 3:
-                        price = list(map(int, row[1:-2]))
-                        addon = row[-2]
-                        timestamp = row[-1]
-                    elif len(row) == 3:
-                        price = [int(row[1])]
-                        addon = row[2]
-                        timestamp = ""
+                    if len(row) > 2:
+                        price = list(map(int, row[1:-1]))
+                        addon = row[-1].strip() if row[-1].strip() else "No add-on"
                     elif len(row) == 2:
                         price = [int(row[1])]
-                        addon = ""
-                        timestamp = ""
+                        addon = "No add-on"
                     else:
                         price = []
-                        addon = ""
-                        timestamp = ""
-                    self.order.append(Order(name, price, addon, timestamp))
+                        addon = "No add-on"
+                    self.order.append(Order(name, price, addon))
         except FileNotFoundError:
             print("File", self.filename, "not found. Create new file!!!")
     
@@ -58,7 +48,7 @@ class Reportorder:
         with open(self.filename, "w", newline= "") as file:
             writer = csv.writer(file)
             for order in self.order:
-                writer.writerow([order.name] + order.price + [order.addon, order.timestamp])
+                writer.writerow([order.name] + order.price + [order.addon])
         
     # def add order
     def Add_order(self, order):
@@ -72,7 +62,7 @@ class Reportorder:
             return
         print("DAFTAR ORDER:")
         for i, order in enumerate(self.order):
-            print(f"{i}. {order.name} - Price: {order.total_price()} - Add-on: {order.addon} - Time: {order.timestamp}")
+            print(f"{i}. {order.name} - Price: {order.total_price()} - Add-on: {order.addon}")
         print()
 
     def Deleteorder(self, index):
@@ -127,10 +117,9 @@ def Main():
             else:
                 print("Add-on is not available; using No add-on")
 
-            timestamp = datetime.now().strftime('%H:%M:%S')
-            manager.Add_order(Order(name, [price], addon, timestamp))
+            manager.Add_order(Order(name, [price], addon))
             print("Order added")
-            print(f"Order: {name}, Price: {price}, Add-on: {addon} -- Time: {timestamp}")
+            print(f"Order: {name}, Price: {price}, Add-on: {addon}")
 
         elif Choice == "3":
             manager.orderList()
