@@ -65,10 +65,19 @@ class Reportorder:
             print(f"{i}. {order.name} - Price: {order.total_price()} - Add-on: {order.addon}")
         print()
 
+    def total_earnings(self):
+        return sum(order.total_price() for order in self.order)
+
+    def order_count(self):
+        return len(self.order)
+
     def Deleteorder(self, index):
         del self.order[index]
         self.saveFile()
-    
+
+    def DeleteorderAll(self):
+        self.order.clear()
+        self.saveFile()
        
 def Main():
     manager = Reportorder()
@@ -76,7 +85,7 @@ def Main():
     
     while True:
         print("Pleasee pick the following choices:")
-        print(" 1.   Show order \n 2.   Add order    \n 3.   Delete order  \n 4.   Exit Choices")
+        print(" 1.   Show order \n 2.   Add order    \n 3.   Delete order  \n 4.   Delete all orders  \n 5.   Exit Choices and Shift")
         Choice = input("Choice:")
         if Choice == "1":
             manager.orderList()
@@ -131,6 +140,19 @@ def Main():
             except ValueError:
                     print("Order not found")
         elif Choice == "4":
+            manager.orderList()
+            confirm = input("Are you sure you want to delete all orders? (yes/no): ")
+            if confirm.lower() == "yes":
+                manager.DeleteorderAll()
+                print("All orders deleted")
+            else:
+                print("Operation cancelled")
+        elif Choice == "5":
+            count = manager.order_count()
+            total = manager.total_earnings()
+            print("End Shift Summary")
+            print(f"Total orders: {count}")
+            print(f"Total earnings: {total}")
             print("Thank you for using this program")
             break
         
