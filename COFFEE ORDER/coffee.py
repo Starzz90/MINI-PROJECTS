@@ -115,20 +115,20 @@ def Main():
                 print("Add-on is not available; using No add-on")
 
             manager.Add_order(Order(name, [price], addon))
-            print("Order berhasil ditambahkan")
+            print("Order added")
             print(f"Order: {name}, Price: {price}, Add-on: {addon}")
 
         elif Choice == "3":
             manager.orderList()
             try:
-                index = int(input("Masukkan Nomor Order yang ingin dihapus= "))
+                index = int(input("Enter the number of the order you want to delete= "))
                 if 0 <= index < len(manager.order):
                     manager.Deleteorder(index)
-                    print("Order berhasil dihapus")
+                    print("Order deleted")
             except ValueError:
-                    print("Order tidak ditemukan")
+                    print("Order not found")
         elif Choice == "4":
-            print("Terima Kasih telah menggunakan program ini")
+            print("Thank you for using this program")
             break
         
     
