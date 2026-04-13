@@ -133,7 +133,7 @@ def Main():
                     print("Coffee is not available; please choose a valid option.")
                     continue
 
-                print("Available add-on: \n 1. Extra Shot (+3000)\n 2. Soy Milk (+5000)\n 3. Vanilla Syrup (+2000)\n 4. Caramel Syrup (+2000)")
+                print("Available add-on: \n 1. Extra Shot (+3000)\n 2. Soy Milk (+5000)\n 3. Vanilla Syrup (+2000)\n 4. Caramel Syrup (+2000) \n 5. No add-on")
                 addonchoice = input("Input add-on number: ")
                 addon = "No add-on"
                 if addonchoice == "1":
@@ -148,6 +148,9 @@ def Main():
                 elif addonchoice == "4":
                     addon = "Caramel Syrup"
                     price += 2000
+                elif addonchoice == "5":
+                    addon = "-"
+                    price += 0
                 else:
                     print("Add-on is not available; using No add-on")
 
