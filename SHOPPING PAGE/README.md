@@ -1,0 +1,1 @@
+A part of LOG AND SHOP, the shopping page. Just the small part of the cluster of files. 

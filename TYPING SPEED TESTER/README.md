@@ -1,0 +1,1 @@
+Typing speed tester uses several words to test your typing speed by measuring the average speed of typing specific selected words from the provided array.

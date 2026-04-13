@@ -1,4 +1,4 @@
-ONE of if not THE LARGEST web project that i did, eventhough some JS lines needed help from COPILOT. Connected my Login, SignIn, Password remember, shopping JS page, Cart, Review, and Order page. Such a blast seeing it in Action.
+ONE of if not THE LARGEST web project that i did, eventhough some JS lines needed help from COPILOT to understand and rework javascript lines. Connected my Login, SignIn, Password remember, shopping JS page, Cart, Review, and Order page. Such a blast seeing it in Action.
 
 To Use:
 - Sign up.

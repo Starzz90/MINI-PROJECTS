@@ -1,4 +1,4 @@
-This python program is used to simulate a real cashier program that is ussualy used in many stores. A pretty simple yet really tested my understanding of OOP for Python which after doing this project i still don't understand.
+This python program is used to simulate a real cashier program that is ussualy used in many stores. A pretty simple yet really tested my understanding of OOP for Python which after doing this project i still don't understand that much. An improvemen from STUDENT LIST.
 
 
 To Use:

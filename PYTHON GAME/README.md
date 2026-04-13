@@ -1,0 +1,1 @@
+This program was the first "big" python project i.m.o which contained 2 simple games, word memorizer and number guess ! A simple game which introduced me to the world of complex python. 

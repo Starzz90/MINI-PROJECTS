@@ -1,0 +1,1 @@
+A playlist which when i created i knew little about audio in JavaScript so yeah, and after was too unmotivated on improving it. So this is what its left, maybe i'll improve it later on if i don't know what to do
