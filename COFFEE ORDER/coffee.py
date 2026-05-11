@@ -109,7 +109,7 @@ def Main():
         employee = input("Input employee name: ")
         while True:
             print("Please insert the following choices:")
-            print(" 1.   Show order \n 2.   Add order    \n 3.   Delete order  \n 4.   Delete all orders  \n 5.   Exit Choices and Shift")
+            print(" 1.   Show order \n 2.   Add order    \n 3.   Delete order  \n 4.   Delete previous shift orders  \n 5.   Exit Choices and Shift")
             Choice = input("Choice:")
             if Choice == "1":
                 manager.orderList()
@@ -188,7 +188,7 @@ def Main():
                 break
             else:
                 print("Please choose a valid option from the menu.")
-        break
+            break
 
 
 if __name__ == "__main__":
