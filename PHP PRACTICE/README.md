@@ -1,1 +1,0 @@
-Practice section which where i ussualy input my practices for courses. Only a short preview of my PHP progress.
