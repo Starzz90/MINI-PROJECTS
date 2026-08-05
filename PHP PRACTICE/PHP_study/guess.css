@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #fff4ea;
+    background-size: cover;
+}
+.buttoned{
+    background-color: #1b401b;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.card{
+    background-color: #fff9ab;
+    color: #1b401b;
+    border: 1px solid #1b401b;
+    border-radius: 10px;
+    border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+.name{
+    background-color: #ebffeb;
+    color: #000;
+    border: 0px solid #1b401b;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+.guess_card{
+    background-color:rgb(147, 136, 122);
+    color: #000;
+    border: 0px solid #1b401b;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    margin: 30px 20px;
+}
+.carded{
+    background-color:rgb(111, 105, 96);
+    color: #000;
+    border: 0px solid #1b401b;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    margin: 30px 20px;
+    box-sizing: border-box;
+}
+.table_head{
+    background-color: #c68400;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 5px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
