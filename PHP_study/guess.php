@@ -1,28 +1,9 @@
-<?php
+<?php   
+    session_start();
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        session_start();
         $_SESSION['name'] = $_POST['name'];
-        header("Location: guess.php");
-    }
-    if(!isset($_SESSION['rand_num'])){
-        $_SESSION['rand_num'] = rand(1, 100);
-    }
-    if($_SERVER["REQUEST_METHOD"] === "POST"){
-        session_start();
-        $guess = $_POST['guess'];
-        $Real_num = $_SESSION['rand_num'];
-
-        if($guess == $Real_num){
-            $message = "Congratulations! You guessed the correct number: $Real_num";
-            header("Location: guess.php?msg=$message&isTrue=1");
-            unset($_SESSION['rand_num']);
-        } elseif($guess < $Real_num){
-            $message = "Too low! Try again.";
-            header("Location: guess.php?msg=$message&isTrue=0");
-        } else {
-            $message = "Too high! Try again.";
-            header("Location: guess.php?msg=$message&isTrue=0");
-        }
+        header("Location: guessed.php");
+        //echo $_SESSION['name'];
     }
 ?>
 <!DOCTYPE html>
@@ -40,6 +21,7 @@
             <input type="text" id="name" name="name" class="name" placeholder="Enter your Name" required>
             <button type="submit" class="buttoned">Start Game</button>
         </div>
+</form>
 </body>
 </html>
 
