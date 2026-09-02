@@ -2437,3 +2437,18 @@ main {
   width: auto;
   height: auto;
 }
+.delete-button{
+  display: flex;
+  margin: 0px auto;
+  background-color: var(--used);
+  color: var(--text);
+  border: transparent;
+  padding: 5px 10px;
+  
+}
+.delete-button:hover{
+  background-color: var(--accent);
+  color: var(--text);
+  border: transparent;
+  padding: 5px 10px;
+}

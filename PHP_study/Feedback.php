@@ -5,11 +5,23 @@
         $feed = htmlspecialchars($_POST['feedback']);
         $rate = intval($_POST['rating']);
         
-        $query = "INSERT INTO `feedbacks`(`Id`, `Username`, `Feedback`, `Rating`) VALUES (NULL,'$user','$feed','$rate')";
+        $query = "INSERT INTO `feedback`(`Id`, `username`, `feedback`, `rating`) VALUES (NULL,'$user','$feed','$rate')";
         $results= mysqli_query($connect, $query);
         $message = "Your message has been submitted  successfully!";
             header("Location: Feedback.php?msg=$message");
     }
+    if(isset($_GET['delete'])){
+        $id = $_GET['delete'];
+        $query = "DELETE FROM `feedback` WHERE `Id` = $id";
+        mysqli_query($connect, $query);
+    }
+    if(isset($_GET['update'])){
+      $id = $_GET['update'];
+      $query = "UPDATE `feedback` SET `username` = 'Updated User', `feedback` = 'Updated Feedback', `rating` = 5 WHERE `Id` = $id";
+      mysqli_query($connect, $query);
+    }
+  $query = "SELECT * FROM `feedback` ORDER BY rating DESC;";
+  $results = mysqli_query($connect, $query);
 ?>
 
 <!doctype html>
@@ -297,6 +309,7 @@
         </div>
     </div>
 </div>
+<div class="all-contain">
     <div class="contain">
         <div class="main-head">
         <div class="status-card">Status = Online;</div>
@@ -304,6 +317,7 @@
             <span class="occupation">An important part of exploration and growth</span><br/>
             <span class="subheading">Improving.Designing.And Publishing works with innovation and adaptability towards a perfect conclusion.</span>
             <div class="under-text"></div>
+        </div>
     <div class="feeback-con-all">
         <div class="feedback-con">
         <div class="Center">
@@ -312,42 +326,49 @@
         <form method="POST" action=""> 
             <p class="feedback-para">
               <input type="text" name="username" min="5" max="30" placeholder="USERNAME" class="inputs" required/>
-              <textarea type="text" name="feedback" min="5" max="250" placeholder="FEEDBACK" class="inputs" required/></textarea>
+              <input type="text" name="feedback" min="5" max="250" placeholder="FEEDBACK" class="inputs" required/>
               <input type="number" name="rating" min="1" max="5" placeholder="RATING (1-5)" class="inputs" required/>
               <button class="submit" name="submit" class="submit">SUBMIT</button>
             </p>
         </form>
-        </div>
+    </div>
         <?php
         if(isset($_GET['msg'])){
             echo "<div class='feedback-con'><p class='feedback-para'>Your feedback has been submitted successfully!</p></div>";
           }
         ?>
-        <div class="triple-column-auto">
-          <div class="work-card">
-        <div class="cert-tag">
-          <div class="cert">
             <?php if (mysqli_num_rows($results) > 0): ?>
               <?php $number = 1 ?>
               <?php while($row = $results->fetch_assoc()): ?> 
+        <div class="work-card">
+          <div class="cert-tag">
+            <div class="cert">
+              <h2><?php echo htmlspecialchars($row['username']); ?></h2>
+            </div>
+            <div class="tag">
+            
+              <a href="Feedback.php?delete=<?php echo $row['Id']; ?>" class="delete-button" name="delete">DELETE</a>
+              <a href="Feedback.php?update=<?php echo $row['Id']; ?>" class="delete-button" name="update">UPDATE</a>
+            </div>
           </div>
-        </div>
-        <h2><?php echo htmlspecialchars($row['username']); ?></h2>
-        <div class="work-content">
-          <?php echo htmlspecialchars($row['feedback']); ?>
-        </div>
-        <div class="line"></div>
-        <div class="cert-tag-BOTTOM">
-          <div class="cert">
-          RATING
+          <div class="work-content">
+            <?php echo htmlspecialchars($row['feedback']); ?>
           </div>
-          <div class="tag"><?php echo htmlspecialchars($row['rating']); ?>/5</div>
+          <div class="line"></div>
+          <div class="cert-tag-BOTTOM">
+            <div class="cert">
+              RATING
+            </div>
+            <div class="tag"><?php echo htmlspecialchars($row['rating']); ?>/5</div>
         </div>
+      </div>
         <?php endwhile ?>
         <?php else: ?>
+        <div class="center">
           <div class="work-content">
             <p>No feedback found</p>
           </div>
+        </div>
         <?php endif ?>
         </div>
       </div>
