@@ -1,9 +1,8 @@
-<?php   
-    session_start();
+<?php
     if($_SERVER["REQUEST_METHOD"] === "POST"){
+        session_start();
         $_SESSION['name'] = $_POST['name'];
         header("Location: guessed.php");
-        //echo $_SESSION['name'];
     }
 ?>
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 </head>
 <body>
     <h1>Welcome to the Number Guesser Game!</h1>
-    <form method="POST" action="">
+    <form method="POST" action="guessed.php">
         <div class="card">
             <input type="text" id="name" name="name" class="name" placeholder="Enter your Name" required>
             <button type="submit" class="buttoned">Start Game</button>
