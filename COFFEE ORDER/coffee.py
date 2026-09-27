@@ -115,6 +115,14 @@ def Main():
                 manager.orderList()
             elif Choice == "2":
                 customer = input("Input customer name: ")
+                discount = input("Is customer a member? (yes/no): ")
+                if discount.lower() == "yes":
+                    print("Member discount applied: 15% off")
+                    discount_rate = 0.15
+                elif discount.lower() != "no":
+                    print("no discount applied")
+                    discount_rate = 0.0
+                    continue
                 print("Available coffee: \n 1. Espresso (15000)\n 2. Latte (20000)\n 3. Cappuccino (25000)\n 4. Americano (18000)")
                 ordered = input("Input order Name: ")
                 if ordered == "1":
@@ -153,7 +161,7 @@ def Main():
                     price += 0
                 else:
                     print("Add-on is not available; using No add-on")
-
+                price = int(price * (1 - discount_rate))
                 manager.Add_order(Order(customer, name, [price], addon))
                 print("Order added")
                 print(f"Customer : {customer}, Order: {name}, Price: {price}, Add-on: {addon}")
