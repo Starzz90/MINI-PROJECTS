@@ -19,13 +19,13 @@ class University:
             return None
 
 
-class UniversityManager:
+class universitymanager:
     def __init__(self, filename="UNIVERSITY.csv"):
         self.universities = []
         self.filename = filename
-        self.loadFile()
+        self.loadfile()
 
-    def loadFile(self):
+    def loadfile(self):
         self.universities.clear()
         try:
             with open(self.filename, newline="") as file:
@@ -40,7 +40,7 @@ class UniversityManager:
         except FileNotFoundError:
             print("File", self.filename, "not found. Create new file!!!")
 
-    def saveFile(self):
+    def savefile(self):
         with open(self.filename, "w", newline="") as file:
             writer = csv.writer(file)
             for uni in self.universities:
@@ -48,9 +48,9 @@ class UniversityManager:
                     [uni.country, uni.name, uni.price, uni.major, uni.deadline, uni.profile]
                 )
 
-    def addUniversity(self, uni):
+    def adduniversity(self, uni):
         self.universities.append(uni)
-        self.saveFile()
+        self.savefile()
 
     def listing(self):
         if not self.universities:
@@ -67,7 +67,7 @@ class UniversityManager:
             )
         print()
 
-    def checkList(self):
+    def checklist(self):
         """Flags anything that needs attention: incomplete profiles or close deadlines."""
         if not self.universities:
             print("No list created!")
@@ -95,13 +95,24 @@ class UniversityManager:
     def count(self):
         return len(self.universities)
 
-    def deleteUniversity(self, index):
+    def deleteuniversity(self, index):
         del self.universities[index]
-        self.saveFile()
+        self.savefile()
 
-    def deleteAll(self):
+    def deleteall(self):
         self.universities.clear()
-        self.saveFile()
+        self.savefile()
+    def edituniversity(self, choice_of_index, changed, new_aspect):
+        if not (0 <= choice_of_index < len(self.universities)):
+            print("Invalid index")
+            return
+        else:
+            uni = self.universities[choice_of_index]
+            setattr(uni, changed, new_aspect)
+            self.savefile()
+            print(f"Updated '{changed}' for index {choice_of_index} to '{uni.name}")
+
+
 
 
 def add_university_flow(manager):
@@ -111,7 +122,7 @@ def add_university_flow(manager):
     major = input("Input Major: ")
     deadline = input("Input Deadline (YYYY-MM-DD): ")
     profile = input("Input Profile status (Complete/No): ")
-    manager.addUniversity(University(country, name, price, major, deadline, profile))
+    manager.adduniversity(University(country, name, price, major, deadline, profile))
     print("University added")
     print(
         f"University = {name} - Country = {country} - Price = {price} - "
@@ -119,8 +130,8 @@ def add_university_flow(manager):
     )
 
 
-def Main():
-    manager = UniversityManager()
+def main():
+    manager = universitymanager()
 
     while True:
         start = input("Start Program? (yes/no): ")
@@ -136,7 +147,7 @@ def Main():
             print(
                 " 1.   Show List \n 2.   Add University    \n 3.   Delete University  "
                 "\n 4.   Delete All  \n 5.   Check List (deadlines & profile status) "
-                "\n 6.   Exit"
+                "\n 6.   Edit \n 7.   EXIT"
             )
             choice = input("Choice: ")
 
@@ -149,7 +160,7 @@ def Main():
                 try:
                     index = int(input("Enter the University ID you want to delete: "))
                     if 0 <= index < manager.count():
-                        manager.deleteUniversity(index)
+                        manager.deleteuniversity(index)
                         print("Deleted")
                     else:
                         print("University not found")
@@ -159,13 +170,39 @@ def Main():
                 manager.listing()
                 confirm = input("Are you sure you want to delete all entries? (yes/no): ")
                 if confirm.lower() == "yes":
-                    manager.deleteAll()
+                    manager.deleteall()
                     print("All deleted")
                 else:
                     print("Operation cancelled")
             elif choice == "5":
-                manager.checkList()
+                manager.checklist()
             elif choice == "6":
+                manager.listing()
+                try:
+                    choice_of_index = int(input("Enter choice: "))
+                except ValueError:
+                    print("Choice not found")
+                    continue
+                if not (0 <= choice_of_index < manager.count()):
+                    print("Choice not found")
+                    continue
+                field_options = {"1": "name",
+                                 "2": "country",
+                                 "3": "price",
+                                 "4": "major",
+                                 "5": "deadline",
+                                 "6": "profile"
+                                 }
+                print('which aspect would you like to change? \n 1. University \n 2. Country \n 3. Price'
+                      '\n 4. Major \n 5. Deadline')
+                changed = input("Enter choice: ")
+                if choice not in field_options:
+                    print("Please choose a valid option from the menu.")
+                    continue
+                new_aspect = input("Enter the changed aspect: ")
+                manager.edituniversity(choice_of_index, field_options[changed], new_aspect)
+
+            elif choice == "7":
                 print("Summary")
                 print(f"Total universities tracked: {manager.count()}")
                 print("Thank you for using this program")
@@ -176,4 +213,6 @@ def Main():
 
 
 if __name__ == "__main__":
-    Main()
+    main()
+
+#We are still using a bit of claude here to do some debugging and improving efficiency of the code. The code is working fine but we can improve it by adding some error handling and input validation. We can also add some comments to make the code more readable.
